@@ -27,4 +27,13 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    static public function ValidateUserCredentials($email){
+        return User::where('email', $email)->first();
+    }
+
+    public function Person()
+    {
+        return $this->hasOne('App\Persona');
+    }
 }

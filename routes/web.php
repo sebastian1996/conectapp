@@ -14,3 +14,17 @@
 Route::get('/', function () {
     return view('index');
 });
+
+Route::get('/Persona', function () {
+    return view('Persona.index');
+});
+
+Route::get('/Punto', function () {
+    return view('Punto.index');
+});
+
+Route::post('/User/SingIn', 'UserController@singIn');
+
+Route::get('/Categoria/All', 'CategoriaController@GetAll');
+
+Route::post('/Elemento', 'ElementoController@Save');

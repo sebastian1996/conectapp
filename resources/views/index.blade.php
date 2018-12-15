@@ -3,6 +3,7 @@
 <head>
 	<title>ConectApp</title>
 	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 	<script src="js/jquery.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
@@ -29,6 +30,7 @@
 				</div>
 			</div>
 		</div>
+		
 		<div class="navbar navbar-dark bg-dark shadow-sm">
 			<div class="container d-flex justify-content-between">
 				<a href="#" class="navbar-brand d-flex align-items-center">
@@ -83,6 +85,7 @@
 			</div>
 		</div>
 
+		<input type="hidden" name="_token" id="token" value="{{ csrf_token() }}">
 		<!-- Modal -->
 		<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
 		  <div class="modal-dialog modal-dialog-centered" role="document">
@@ -98,23 +101,55 @@
 				  <div class="input-group-prepend">
 				    <span class="input-group-text" id="basic-addon1"><i class="material-icons">account_circle</i></span>
 				  </div>
-				  <input type="text" class="form-control" placeholder="Usuario" aria-label="Username" aria-describedby="basic-addon1">
+				  <input type="text" id="Usertxt" class="form-control" placeholder="E-mail" aria-label="Username" aria-describedby="basic-addon1">
 				</div>
 
 				<div class="input-group mb-3">
 				  <div class="input-group-prepend">
 				    <span class="input-group-text" id="basic-addon2"><i class="material-icons">lock</i></span>
 				  </div>
-				  <input type="text" class="form-control" placeholder="Contraseña" aria-label="Password" aria-describedby="basic-addon2">
+				  <input type="password" id="PwdTxt" class="form-control" placeholder="Contraseña" aria-label="Password" aria-describedby="basic-addon2">
 				</div>
 		      </div>
 		      <div class="modal-footer">
 		        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-		        <button type="button" class="btn btn-primary">Ingresar</button>
+		        <button type="button" class="btn btn-primary" id="singin">Ingresar</button>
 		      </div>
 		    </div>
 		  </div>
 		</div>
 	</div>
+
+	<script type="text/javascript">
+		$(function() {
+			$('#singin').click(function(){
+				if ($('#Usertxt').val() == "" || $('#PwdTxt').val() == "") {
+					alert('Tiene un capo vacio');
+				}else{
+					$.ajax({
+						url:'/User/SingIn',
+						type:'POST',
+						data:{email:$('#Usertxt').val(), password:$('#PwdTxt').val(), "_token": $('#token').val()},
+						dataType:'json',
+						success:function(argument) {
+							if (argument.status) {
+								redirec(argument.typeData);
+							} else {
+								alert('Las credenciales son incorrectas');
+							}
+						}
+					});
+				}
+			});
+
+			function redirec(argument) {
+				if (argument == 'Persona') {
+					window.location = '/Persona';
+				}else{
+					window.location = '/Punto';
+				}
+			}
+		});
+	</script>
 </body>
 </html>
