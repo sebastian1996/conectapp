@@ -15,6 +15,10 @@
 		#SidenavPc{
 			display: none;
 		}
+
+		#brandText{
+			display: none;
+		}
 	}
 
 	@media (min-width: 770px) {
@@ -31,7 +35,7 @@
 			<div class="container d-flex justify-content-between">
 				<a href="/Persona" class="navbar-brand d-flex align-items-center">
 					<img src="/img/icon_conectapp.jpg" style="height: 30px;border-radius: 50%;">
-					<strong style="margin-left: 10px;color: white;">ConectApp</strong>
+					<strong id="brandText" style="margin-left: 10px;color: white;">ConectApp</strong>
 				</a>
 				<button class="navbar-toggler" id="buttonSidenav" type="button" data-toggle="collapse" data-target="#collapseExample" aria-controls="collapseExample" aria-expanded="false" aria-label="Toggle navigation">
 					<i class="material-icons" style="color: white;">contact_support</i>
