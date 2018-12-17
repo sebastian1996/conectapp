@@ -54,87 +54,89 @@
 		<div class="dropdown-divider"></div>
 	</nav>
 
-	<div class="row">
-		<nav class="nav flex-column col-md-2" id="SidenavPc">
-			<!-- <a class="nav-link active" href="#">Adquirir</a> -->
-			<a class="nav-link" href="#" id="PublicarSide_">Publicar</a>
-			<div class="dropdown-divider"></div>
-			<a class="nav-link" href="#" id="ContactoSide_">Contactos</a>
-			<div class="dropdown-divider"></div>
-			<a class="nav-link" href="/User/SingOut">Salir</a>
-			<div class="dropdown-divider"></div>
-		</nav>
+	<nav class="nav flex-column col-md-2" id="SidenavPc">
+		<!-- <a class="nav-link active" href="#">Adquirir</a> -->
+		<a class="nav-link" href="#" id="PublicarSide_">Publicar</a>
+		<div class="dropdown-divider"></div>
+		<a class="nav-link" href="#" id="ContactoSide_">Contactos</a>
+		<div class="dropdown-divider"></div>
+		<a class="nav-link" href="/User/SingOut">Salir</a>
+		<div class="dropdown-divider"></div>
+	</nav>
 
-		<div class="col-12 col-md-9" id="adquirirView" style="display: none;">
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-		</div>
+	<div class="container">
+		<div class="row">
+			<div class="col-12 col-md-9" id="adquirirView" style="display: none;">
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+					consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+					cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+			</div>
 
-		<div class="col-12 col-md-9" id="publicarView">
-			<h1>Publicar Elementos</h1>
+			<div class="col-12 col-md-9" id="publicarView">
+				<h1>Publicar Elementos</h1>
 
-			<form id="myform">
-				<div class="form-group">
-					<label for="categoria_id">Categoria</label>
-					<select class="form-control" id="categoria_id" name="categoria_id">
-						
-					</select>
-				</div>
-
-				<div class="form-group">
-					<label for="nombre">Nombre</label>
-					<input type="text" class="form-control" id="nombre" name="nombre" aria-describedby="emailHelp">
-					<!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
-				</div>
-
-				<div class="form-group">
-					<label for="descripcion">Descripción</label>
-					<textarea class="form-control" id="descripcion" name="descripcion" rows="3"></textarea>
-				</div>
-
-				<div class="row">
-					<div class="form-group col-12 col-md-6">
-						<label for="cantidad">Cantidad</label>
-						<input type="number" class="form-control" id="cantidad" name="cantidad">
+				<form id="myform">
+					<div class="form-group">
+						<label for="categoria_id">Categoria</label>
+						<select class="form-control" id="categoria_id" name="categoria_id">
+							
+						</select>
 					</div>
 
-					<div class="form-group col-12 col-md-6">
-						<label for="cantidad_id">Medida</label>
-						<input type="text" class="form-control" id="cantidad_id" name="cantidad_id" placeholder="Kilogramo" readonly>
+					<div class="form-group">
+						<label for="nombre">Nombre</label>
+						<input type="text" class="form-control" id="nombre" name="nombre" aria-describedby="emailHelp">
+						<!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
 					</div>
-				</div>
 
-				<div class="form-group">
-					<label for="imagen">Imagen</label>
-					<input type="file" class="form-control" id="imagen" name="imagen">
-				</div>
+					<div class="form-group">
+						<label for="descripcion">Descripción</label>
+						<textarea class="form-control" id="descripcion" name="descripcion" rows="3"></textarea>
+					</div>
 
-				<div class="row justify-content-center">
-					<img id="preview" class="img-fluid" src="" height="250" width="280" style="display: none;">
-				</div>
+					<div class="row">
+						<div class="form-group col-12 col-md-6">
+							<label for="cantidad">Cantidad</label>
+							<input type="number" class="form-control" id="cantidad" name="cantidad">
+						</div>
 
-				<input type="hidden" name="_token" id="token" value="{{ csrf_token() }}">
-				
-				<div class="row">
-					<canvas id="MyCanvas" height="250" width="280" style="display: none;"></canvas>	
-				</div>
+						<div class="form-group col-12 col-md-6">
+							<label for="cantidad_id">Medida</label>
+							<input type="text" class="form-control" id="cantidad_id" name="cantidad_id" placeholder="Kilogramo" readonly>
+						</div>
+					</div>
 
-				<div class="row">
-					<button type="button" id="Send" class="btn btn-primary">Enviar</button>
-				</div>
-			</form>
-		</div>
+					<div class="form-group">
+						<label for="imagen">Imagen</label>
+						<input type="file" class="form-control" id="imagen" name="imagen">
+					</div>
 
-		<div class="col-12 col-md-9" id="ContactoView" style="display: none;">
-			<div class="card">
-				<h1 class="card-header">Contactos recibidos</h1>
-				<form class="container" id="ShowContactos">
+					<div class="row justify-content-center">
+						<img id="preview" class="img-fluid" src="" height="250" width="280" style="display: none;">
+					</div>
+
+					<input type="hidden" name="_token" id="token" value="{{ csrf_token() }}">
 					
+					<div class="row">
+						<canvas id="MyCanvas" height="250" width="280" style="display: none;"></canvas>	
+					</div>
+
+					<div class="form-group">
+						<button type="button" id="Send" class="btn btn-primary">Enviar</button>
+					</div>
 				</form>
+			</div>
+
+			<div class="col-12 col-md-9" id="ContactoView" style="display: none;">
+				<div class="card">
+					<h1 class="card-header">Contactos recibidos</h1>
+					<form class="container" id="ShowContactos">
+						
+					</form>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -165,22 +167,22 @@
 					var html_ = "";
 					for (var i = 0; i < argument.length; i++) {
 						html_+= '<div class="list-group" style="margin: 10px 0px;">'+
-								  '<div class="list-group-item list-group-item-action flex-column align-items-start">'+
-								    '<div class="d-flex w-100 justify-content-between">'+
-								      '<h5 class="mb-1">'+argument[i].elemento.nombre+' - $'+argument[i].precio+'</h5>'+
-								      '<small>'+argument[i].elemento.estado+'</small>'+
-								    '</div>'+
-								    '<div class="d-flex w-100 justify-content-between"><img class="card-img-top" src="img/elementos/'+argument[i].elemento.imagen+'" alt="Card image cap" style="height:100px;width:130px;"></div>'+
-								    '<p class="mb-1">'+argument[i].elemento.descripcion+'</p>'+
-								    '<small><b>Persona:</b> '+argument[i].punto.nombre+' / <b>Dirección:</b> '+argument[i].punto.direccion+'</small>'+
-								    '<div class="d-flex w-100 justify-content-between">'+
-									    '<button type="button" class="btn btn-primary"'+ 
-											'style="margin-top: 10px;" onclick="cerrarAcuerdo('+argument[i].id+');">'+
-											'Cerrar Acuerdo'+
-										'</button>'+
-									'</div>'+
-								  '</div>'+
-								'</div>';
+						'<div class="list-group-item list-group-item-action flex-column align-items-start">'+
+						'<div class="d-flex w-100 justify-content-between">'+
+						'<h5 class="mb-1">'+argument[i].elemento.nombre+' - $'+argument[i].precio+'</h5>'+
+						'<small>'+argument[i].elemento.estado+'</small>'+
+						'</div>'+
+						'<div class="d-flex w-100 justify-content-between"><img class="card-img-top" src="img/elementos/'+argument[i].elemento.imagen+'" alt="Card image cap" style="height:100px;width:130px;"></div>'+
+						'<p class="mb-1">'+argument[i].elemento.descripcion+'</p>'+
+						'<small><b>Persona:</b> '+argument[i].punto.nombre+' / <b>Dirección:</b> '+argument[i].punto.direccion+'</small>'+
+						'<div class="d-flex w-100 justify-content-between">'+
+						'<button type="button" class="btn btn-primary"'+ 
+						'style="margin-top: 10px;" onclick="cerrarAcuerdo('+argument[i].id+');">'+
+						'Cerrar Acuerdo'+
+						'</button>'+
+						'</div>'+
+						'</div>'+
+						'</div>';
 					}
 
 					$('#ShowContactos').html(html_);
@@ -191,39 +193,43 @@
 
 	function cerrarAcuerdo(argument) {
 		var data_ = {
-				"acuerdo_id":argument,
-				"_token": $('#token').val()
-			};
+			"acuerdo_id":argument,
+			"_token": $('#token').val()
+		};
 
-			$.ajax({
-				url:'/Acuerdo/PersonaCerrar',
-				type:'POST',
-				data:data_,
-				dataType:'json',
-				success:function(argument) {
-					if (argument.status) {
-						buscar_acuerdos();
-					}
-					alert(argument.msg);
+		$.ajax({
+			url:'/Acuerdo/PersonaCerrar',
+			type:'POST',
+			data:data_,
+			dataType:'json',
+			success:function(argument) {
+				if (argument.status) {
+					buscar_acuerdos();
 				}
-			});
+				alert(argument.msg);
+			}
+		});
 	}
 
 	$(function() {
 		$('#PublicarSide').on('click', function() {
+			$('#collapseExample').collapse('hide');
 			mostrarVista('#publicarView');
 		});
 
 		$('#PublicarSide_').on('click', function() {
+			$('#collapseExample').collapse('hide');
 			mostrarVista('#publicarView');
 		});
 
 		$('#ContactoSide_').on('click', function() {
+			$('#collapseExample').collapse('hide');
 			buscar_acuerdos();
 			mostrarVista('#ContactoView');
 		});
 
 		$('#ContactoSide').on('click', function() {
+			$('#collapseExample').collapse('hide');
 			buscar_acuerdos();
 			mostrarVista('#ContactoView');
 		});
@@ -263,9 +269,9 @@
 				alert('Un dato esta vacío, por favor compruebe');
 			} else {
 				var myCanvas = document.getElementById('MyCanvas');
-			    var ctx = myCanvas.getContext('2d');
-			    ctx.drawImage(document.getElementById("preview"), 0, 0, 280, 250);
-			    var base64Str = myCanvas.toDataURL();
+				var ctx = myCanvas.getContext('2d');
+				ctx.drawImage(document.getElementById("preview"), 0, 0, 280, 250);
+				var base64Str = myCanvas.toDataURL();
 
 				var data_ = {
 					nombre:$('#nombre').val(),
