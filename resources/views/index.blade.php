@@ -20,9 +20,14 @@
 		  color: white;
 		  text-align: center;
 		}
+
 		@media (max-width: 769px) {
 			#brandText{
 				display: none;
+			}
+
+			#PersonasBox {
+			  margin-bottom: 100px;
 			}
 		}
 
@@ -95,7 +100,7 @@
 				</a>
 			</div>
 
-			<div class="col-md-6">
+			<div class="col-md-6" id="PersonasBox">
 				<a href="#" data-toggle="modal" data-target="#exampleModalCenter">
 					<div class="card mb-4 shadow-sm">
 						<img class="card-img-top" src="img/personas.jpg" title="Personas, Fuente: https://sp.depositphotos.com/98091096/stock-photo-young-people-recycling.html">
