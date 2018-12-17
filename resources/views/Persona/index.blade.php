@@ -54,18 +54,19 @@
 		<div class="dropdown-divider"></div>
 	</nav>
 
-	<nav class="nav flex-column col-md-2" id="SidenavPc">
-		<!-- <a class="nav-link active" href="#">Adquirir</a> -->
-		<a class="nav-link" href="#" id="PublicarSide_">Publicar</a>
-		<div class="dropdown-divider"></div>
-		<a class="nav-link" href="#" id="ContactoSide_">Contactos</a>
-		<div class="dropdown-divider"></div>
-		<a class="nav-link" href="/User/SingOut">Salir</a>
-		<div class="dropdown-divider"></div>
-	</nav>
+	
 
 	<div class="container">
 		<div class="row">
+			<nav class="nav flex-column col-md-2" id="SidenavPc">
+				<!-- <a class="nav-link active" href="#">Adquirir</a> -->
+				<a class="nav-link" href="#" id="PublicarSide_">Publicar</a>
+				<div class="dropdown-divider"></div>
+				<a class="nav-link" href="#" id="ContactoSide_">Contactos</a>
+				<div class="dropdown-divider"></div>
+				<a class="nav-link" href="/User/SingOut">Salir</a>
+				<div class="dropdown-divider"></div>
+			</nav>
 			<div class="col-12 col-md-9" id="adquirirView" style="display: none;">
 				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,

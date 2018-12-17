@@ -57,21 +57,21 @@
 		<div class="dropdown-divider"></div>
 	</nav>
 
-	<nav class="nav flex-column col-md-2" id="SidenavPc">
-		<a class="nav-link" href="#" id="BuscarSide_">Buscar</a>
-		<div class="dropdown-divider"></div>
-		<a class="nav-link" href="#" id="DefinirSide_">Definir precios</a>
-		<div class="dropdown-divider"></div>
-		<a class="nav-link" href="#" id="ContactoSide_">Contactos</a>
-		<div class="dropdown-divider"></div>
-		<a class="nav-link" href="#" id="AcuerdoSide_">Acuerdos</a>
-		<div class="dropdown-divider"></div>
-		<a class="nav-link" href="/User/SingOut">Salir</a>
-		<div class="dropdown-divider"></div>
-	</nav>
-
 	<div class="container">
 		<div class="row">
+			<nav class="nav flex-column col-md-2" id="SidenavPc">
+				<a class="nav-link" href="#" id="BuscarSide_">Buscar</a>
+				<div class="dropdown-divider"></div>
+				<a class="nav-link" href="#" id="DefinirSide_">Definir precios</a>
+				<div class="dropdown-divider"></div>
+				<a class="nav-link" href="#" id="ContactoSide_">Contactos</a>
+				<div class="dropdown-divider"></div>
+				<a class="nav-link" href="#" id="AcuerdoSide_">Acuerdos</a>
+				<div class="dropdown-divider"></div>
+				<a class="nav-link" href="/User/SingOut">Salir</a>
+				<div class="dropdown-divider"></div>
+			</nav>
+	
 			<div class="col-12 col-md-9" id="BuscarView" style="display: none;">
 				<div class="card">
 					<h1 class="card-header">Elementos disponibles</h1>
