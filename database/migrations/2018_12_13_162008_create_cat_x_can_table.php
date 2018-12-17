@@ -17,7 +17,6 @@ class CreateCatXCanTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('categoria_id');
             $table->unsignedInteger('cantidad_id');
-            $table->string('precio');
             $table->timestamps();
 
             $table->foreign('categoria_id')->references('id')->on('categorias');

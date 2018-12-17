@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCatXSubcatTable extends Migration
+class CreateCatXPunTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,17 @@ class CreateCatXSubcatTable extends Migration
      */
     public function up()
     {
-        Schema::create('cat_x_subcat', function (Blueprint $table) {
+        Schema::create('cat_x_pun', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('categoria_id');
-            $table->unsignedInteger('subcategoria_id');
+            $table->unsignedInteger('cantidad_id');
+            $table->unsignedInteger('punto_id');
+            $table->string('precio')->nullable();
             $table->timestamps();
 
             $table->foreign('categoria_id')->references('id')->on('categorias');
-            $table->foreign('subcategoria_id')->references('id')->on('subcategorias');
+            $table->foreign('cantidad_id')->references('id')->on('cantidades');
+            $table->foreign('punto_id')->references('id')->on('puntos');
         });
     }
 
@@ -31,6 +34,6 @@ class CreateCatXSubcatTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cat_x_subcat');
+        Schema::dropIfExists('cat_x_pun');
     }
 }

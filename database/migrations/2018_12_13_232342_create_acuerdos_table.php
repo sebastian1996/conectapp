@@ -18,7 +18,7 @@ class CreateAcuerdosTable extends Migration
             $table->string('estadoGeneral');
             $table->string('estadoPunto');
             $table->string('estadoPersona');
-            $table->string('precio');
+            $table->string('precio')->nullable();
             $table->unsignedInteger('punto_id');
             $table->unsignedInteger('elemento_id');
             $table->timestamps();

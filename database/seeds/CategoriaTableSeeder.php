@@ -10,7 +10,7 @@ class CategoriaTableSeeder extends Seeder
      * @return void
      */
 
-    private $data = ['Papel', 'Cartón', 'Vidrio', 'Metales', 'Plástico', 'Muebles', 'Electrodomésticos', 'Ropa y Calzado'];
+    private $data = ['Papel', 'Cartón', 'Vidrio', 'Metal/Cobre', 'Metal/Chatarra', 'Metal/Hierro', 'Metal/Aluminio', 'Plástico/PET', 'Plástico/Otros','Muebles', 'Electrodomésticos', 'Ropa y Calzado'];
     
     public function run()
     {

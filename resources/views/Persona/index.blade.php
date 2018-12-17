@@ -4,6 +4,7 @@
 	<title>ConectApp - Personas</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="icon" href="img/icon_conectapp.jpg">
 
 	<script src="js/jquery.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
@@ -26,13 +27,14 @@
 </head>
 <body>
 	<header>
-		<div class="navbar navbar-dark bg-dark shadow-sm">
+		<div class="navbar shadow-sm" style="background-color: green;">
 			<div class="container d-flex justify-content-between">
 				<a href="/Persona" class="navbar-brand d-flex align-items-center">
-					<strong>ConectApp</strong>
+					<img src="/img/icon_conectapp.jpg" style="height: 30px;border-radius: 50%;">
+					<strong style="margin-left: 10px;color: white;">ConectApp</strong>
 				</a>
 				<button class="navbar-toggler" id="buttonSidenav" type="button" data-toggle="collapse" data-target="#collapseExample" aria-controls="collapseExample" aria-expanded="false" aria-label="Toggle navigation">
-					<i class="material-icons">contact_support</i>
+					<i class="material-icons" style="color: white;">contact_support</i>
 				</button>
 			</div>
 		</div>
@@ -40,15 +42,23 @@
 
 	<nav class="nav collapse flex-column col" id="collapseExample">
 		<!-- <a class="nav-link active" href="#">Adquirir</a> -->
-		<a class="nav-link" href="#">Publicar</a>
-		<a class="nav-link" href="#">Salir</a>
+		<a class="nav-link" href="#" id="PublicarSide">Publicar</a>
+		<div class="dropdown-divider"></div>
+		<a class="nav-link" href="#" id="ContactoSide">Contactos</a>
+		<div class="dropdown-divider"></div>
+		<a class="nav-link" href="/User/SingOut">Salir</a>
+		<div class="dropdown-divider"></div>
 	</nav>
 
 	<div class="row">
 		<nav class="nav flex-column col-md-2" id="SidenavPc">
 			<!-- <a class="nav-link active" href="#">Adquirir</a> -->
-			<a class="nav-link" href="#">Publicar</a>
-			<a class="nav-link" href="#">Salir</a>
+			<a class="nav-link" href="#" id="PublicarSide_">Publicar</a>
+			<div class="dropdown-divider"></div>
+			<a class="nav-link" href="#" id="ContactoSide_">Contactos</a>
+			<div class="dropdown-divider"></div>
+			<a class="nav-link" href="/User/SingOut">Salir</a>
+			<div class="dropdown-divider"></div>
 		</nav>
 
 		<div class="col-12 col-md-9" id="adquirirView" style="display: none;">
@@ -114,11 +124,106 @@
 				</div>
 			</form>
 		</div>
+
+		<div class="col-12 col-md-9" id="ContactoView" style="display: none;">
+			<div class="card">
+				<h1 class="card-header">Contactos recibidos</h1>
+				<form class="container" id="ShowContactos">
+					
+				</form>
+			</div>
+		</div>
 	</div>
 </body>
 
 <script type="text/javascript">
+	function mostrarVista(argument) {
+		var vistas = ['#publicarView','#ContactoView'];
+		for (var i = 0; i < vistas.length; i++) {
+			if (vistas[i] == argument) {
+				$(vistas[i]).css({'display':''});
+			} else {
+				$(vistas[i]).css({'display':'none'});
+			} 	
+		}
+	}
+
+	function buscar_acuerdos() {
+		$.ajax({
+			url:'/Acuerdo/Persona',
+			type:'GET',
+			success:function(argument) {
+				console.log(argument);
+				if (argument.length == 0) {
+					$('#ShowContactos').attr('class','row justify-content-center');
+					$('#ShowContactos').html('<p class="card-text"><i>No hay contactos recibidos</i></p>');
+				} else {
+					var html_ = "";
+					for (var i = 0; i < argument.length; i++) {
+						html_+= '<div class="list-group" style="margin: 10px 0px;">'+
+								  '<div class="list-group-item list-group-item-action flex-column align-items-start">'+
+								    '<div class="d-flex w-100 justify-content-between">'+
+								      '<h5 class="mb-1">'+argument[i].elemento.nombre+' - $'+argument[i].precio+'</h5>'+
+								      '<small>'+argument[i].elemento.estado+'</small>'+
+								    '</div>'+
+								    '<div class="d-flex w-100 justify-content-between"><img class="card-img-top" src="img/elementos/'+argument[i].elemento.imagen+'" alt="Card image cap" style="height:100px;width:130px;"></div>'+
+								    '<p class="mb-1">'+argument[i].elemento.descripcion+'</p>'+
+								    '<small><b>Persona:</b> '+argument[i].punto.nombre+' / <b>Dirección:</b> '+argument[i].punto.direccion+'</small>'+
+								    '<div class="d-flex w-100 justify-content-between">'+
+									    '<button type="button" class="btn btn-primary"'+ 
+											'style="margin-top: 10px;" onclick="cerrarAcuerdo('+argument[i].id+');">'+
+											'Cerrar Acuerdo'+
+										'</button>'+
+									'</div>'+
+								  '</div>'+
+								'</div>';
+					}
+
+					$('#ShowContactos').html(html_);
+				}
+			}
+		});
+	}
+
+	function cerrarAcuerdo(argument) {
+		var data_ = {
+				"acuerdo_id":argument,
+				"_token": $('#token').val()
+			};
+
+			$.ajax({
+				url:'/Acuerdo/PersonaCerrar',
+				type:'POST',
+				data:data_,
+				dataType:'json',
+				success:function(argument) {
+					if (argument.status) {
+						buscar_acuerdos();
+					}
+					alert(argument.msg);
+				}
+			});
+	}
+
 	$(function() {
+		$('#PublicarSide').on('click', function() {
+			mostrarVista('#publicarView');
+		});
+
+		$('#PublicarSide_').on('click', function() {
+			mostrarVista('#publicarView');
+		});
+
+		$('#ContactoSide_').on('click', function() {
+			buscar_acuerdos();
+			mostrarVista('#ContactoView');
+		});
+
+		$('#ContactoSide').on('click', function() {
+			buscar_acuerdos();
+			mostrarVista('#ContactoView');
+		});
+
 		llenar_categorias();
 
 		function llenar_categorias() {

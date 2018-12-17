@@ -23,4 +23,19 @@ class Elemento extends Model
 			'cantidad_id' => $values['cantidad_id']
 		]);
 	}
+
+	public function person()
+	{
+		return $this->belongsTo('App\Persona', 'persona_id');
+	}
+
+	public function cant()
+	{
+		return $this->belongsTo('App\Cantidad', 'cantidad_id');
+	}
+
+	public function contac()
+	{
+		return $this->HasMany('App\Acuerdo', 'elemento_id');
+	}
 }

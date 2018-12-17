@@ -4,11 +4,23 @@
 	<title>ConectApp</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="icon" href="img/icon_conectapp.jpg">
 
 	<script src="js/jquery.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<style type="text/css">
+		.footer {
+		  position: fixed;
+		  left: 0;
+		  bottom: 0;
+		  width: 100%;
+		  background-color: green;
+		  color: white;
+		  text-align: center;
+		}
+	</style>
 </head>
 <body>
 	<header>
@@ -16,36 +28,40 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-sm-8 col-md-7 py-4">
-						<h4 class="text-white">Acerca de.</h4>
-						<p class="text-white">Con ConectApp podrás dar, vender o comprar tus elementos reciclables tales como cartón, papel, plástico y similares; encontrando con nuestra plataforma puntos de recolección u otras personas interesadas en adquirirlos.</p>
+						<h4 class="text-white">¿Qué es ConectApp?</h4>
+						<p class="text-white">ConectApp es un modo sencillo de conectar, aprender y generar ingresos extras con el potencial de los residuos y las cosas que ya no usas. Regístrate rápido y sigue los pasos para formar parte de una nueva ecónoma sostenible!</p>
 					</div>
 					<div class="col-sm-4 offset-md-1 py-4">
 						<h4 class="text-white">Contacto</h4>
 						<ul class="list-unstyled">
-							<li><a href="#" class="text-white"><img src="img/twitter.png" style="width: 30px;"> Twitter</a></li>
-							<li><a href="#" class="text-white"><img src="img/facebook.png" style="width: 30px;"> Facebook</a></li>
-							<li><a href="#" class="text-white"><img src="img/gmail.png" style="width: 30px;"> conect-app@gmail.com</a></li>
+							<li style="margin-bottom: 5px;"><a href="#" class="text-white"><img src="img/twitter.png" style="width: 30px;"> @ConectAppCol - Twitter</a></li>
+							<li style="margin-bottom: 5px;"><a href="#" class="text-white"><img src="img/facebook.png" style="width: 30px;"> Conectapp - Facebook</a></li>
+							<li><a href="#" class="text-white"><img src="img/instagram.png" style="width: 30px;"> conectapp.co - Instagram</a></li>
 						</ul>
 					</div>
 				</div>
 			</div>
 		</div>
 		
-		<div class="navbar navbar-dark bg-dark shadow-sm">
+		<div class="navbar shadow-sm" style="background-color: green;">
 			<div class="container d-flex justify-content-between">
 				<a href="#" class="navbar-brand d-flex align-items-center">
-					<!-- <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg> -->
-					<strong>ConectApp</strong>
+					<img src="/img/icon_conectapp.jpg" style="height: 30px;border-radius: 50%;">
+					<strong style="margin-left: 10px;color: white;">ConectApp</strong>
 				</a>
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
 					<!-- <span class="navbar-toggler-icon"></span> -->
-					<i class="material-icons">contact_support</i>
+					<i class="material-icons" style="color: white;">contact_support</i>
 				</button>
 			</div>
 		</div>
 	</header>
 
 	<div class="container">
+		<div class="row" style="margin-top: 10px;margin-bottom: -20px;">
+			<b style="margin-left: auto;margin-right: auto;"><i>Infórmate, conéctate y descubre el potencial de tus residuos</i></b>
+		</div>
+
 		<div class="row" style="margin-top: 50px;">
 			<div class="col-md-6">
 				<a href="#" data-toggle="modal" data-target="#exampleModalCenter">
@@ -119,6 +135,16 @@
 		  </div>
 		</div>
 	</div>
+
+	<footer class="footer page-footer font-small blue">
+
+	  <!-- Copyright -->
+	  <div class="footer-copyright text-center py-3">
+	  	© 2018 Copyright: sgonzalezm@unicesar.edu.co
+	  </div>
+	  <!-- Copyright -->
+
+	</footer>
 
 	<script type="text/javascript">
 		$(function() {

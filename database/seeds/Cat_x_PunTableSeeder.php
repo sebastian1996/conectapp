@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class SubCategoriaTableSeeder extends Seeder
+class Cat_x_PunTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -10,12 +10,12 @@ class SubCategoriaTableSeeder extends Seeder
      * @return void
      */
 
-    private $data = ['Cobre', 'Chatarra', 'Hierro', 'Aluminio', 'PET', 'Otro'];
+    private $data = ['1', '2', '3'];
 
     public function run()
     {
         for ($i = 0; $i < count($this->data); $i++ ){
-            DB::table('subcategorias')->insert(['nombre' => $this->data[$i]]);
+            DB::table('cat_x_pun')->insert(['categoria_id' => $this->data[$i], 'cantidad_id' => '1', 'punto_id' => '1']);
         }
     }
 }

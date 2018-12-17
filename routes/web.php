@@ -11,20 +11,43 @@
 |
 */
 
+use App\User;
+
 Route::get('/', function () {
     return view('index');
 });
 
 Route::get('/Persona', function () {
+	if( !Session::get('session') || !User::find(Session::get('session'))->person()->first()['id'] ) {
+       return redirect('/');
+    }
+    
     return view('Persona.index');
 });
 
 Route::get('/Punto', function () {
+	if( !Session::get('session') || User::find(Session::get('session'))->person()->first()['id'] ) {
+       return redirect('/');
+    }
+
     return view('Punto.index');
 });
 
-Route::post('/User/SingIn', 'UserController@singIn');
+Route::post('/User/SingIn', 'UserController@SingIn');
+Route::get('/User/SingOut', 'UserController@SingOut');
+Route::get('/User/Check', 'UserController@CheckSession');
 
 Route::get('/Categoria/All', 'CategoriaController@GetAll');
+Route::get('/Categoria/Punto', 'CategoriaController@CategoriesForPoint');
 
 Route::post('/Elemento', 'ElementoController@Save');
+Route::get('/Elemento/Disponibles', 'ElementoController@SearchElementsByCategories');
+
+Route::post('/Punto/Categorias', 'PuntoController@SaveCategoriesPrices');
+
+Route::post('/Acuerdo', 'AcuerdoController@Save');
+Route::post('/Acuerdo/PuntoCerrar', 'AcuerdoController@ClosePoint');
+Route::post('/Acuerdo/PersonaCerrar', 'AcuerdoController@ClosePerson');
+Route::get('/Acuerdo/Punto', 'AcuerdoController@SearchContactPoint');
+Route::get('/Acuerdo/Punto/Realizados', 'AcuerdoController@SearchContactPointDone');
+Route::get('/Acuerdo/Persona', 'AcuerdoController@SearchContactPerson');
