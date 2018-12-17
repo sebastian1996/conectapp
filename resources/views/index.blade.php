@@ -20,6 +20,17 @@
 		  color: white;
 		  text-align: center;
 		}
+		@media (max-width: 769px) {
+			#brandText{
+				display: none;
+			}
+		}
+
+		@media (min-width: 770px) {
+			#brandText{
+				display: ;
+			}
+		}
 	</style>
 </head>
 <body>
@@ -47,7 +58,7 @@
 			<div class="container d-flex justify-content-between">
 				<a href="#" class="navbar-brand d-flex align-items-center">
 					<img src="/img/icon_conectapp.jpg" style="height: 30px;border-radius: 50%;">
-					<strong style="margin-left: 10px;color: white;">ConectApp</strong>
+					<strong id="brandText" style="margin-left: 10px;color: white;">ConectApp</strong>
 				</a>
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
 					<!-- <span class="navbar-toggler-icon"></span> -->
@@ -58,15 +69,17 @@
 	</header>
 
 	<div class="container">
-		<div class="row" style="margin-top: 10px;margin-bottom: -20px;">
-			<b style="margin-left: auto;margin-right: auto;"><i>Infórmate, conéctate y descubre el potencial de tus residuos</i></b>
+		<div class="row justify-content-md-center" style="margin-top: 10px;margin-bottom: -20px;">
+			<div class="col-md-auto">
+				<b><i>Infórmate, conéctate y descubre el potencial de tus residuos</i></b>
+			</div>
 		</div>
 
 		<div class="row" style="margin-top: 50px;">
 			<div class="col-md-6">
 				<a href="#" data-toggle="modal" data-target="#exampleModalCenter">
 					<div class="card mb-4 shadow-sm">
-						<img class="card-img-top" src="img/punto.jpg" title="Punto de recolección">
+						<img class="card-img-top" src="img/punto.jpg" title="Punto de recolección, Fuente: http://www.buenosaires.gob.ar/noticias/los-puntos-verdes-de-la-ciudad-pleno-con-la-recoleccion-de-residuos-reciclables">
 						<div class="card-body">
 							<p class="card-text" style="color: black;"><b>Punto de recolección</b><br>
 							ingresa como organización que busca elementos para reutilizarlos según los estándares de la economía circular</p>
@@ -85,7 +98,7 @@
 			<div class="col-md-6">
 				<a href="#" data-toggle="modal" data-target="#exampleModalCenter">
 					<div class="card mb-4 shadow-sm">
-						<img class="card-img-top" src="img/personas.jpg" title="Personas">
+						<img class="card-img-top" src="img/personas.jpg" title="Personas, Fuente: https://sp.depositphotos.com/98091096/stock-photo-young-people-recycling.html">
 						<div class="card-body">
 							<p class="card-text" style="color: black;"><b>Personas</b><br> Publica tus objetos para dar o vender y adquirirlos según sean tus necesidades y aporta a reducir la sobre explotación del los recursos naturales</p>
 							<div class="d-flex justify-content-between align-items-center">
