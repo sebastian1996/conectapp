@@ -12,7 +12,7 @@
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<style type="text/css">
 		.footer {
-		  position: fixed;
+		  /*position: fixed;*/
 		  left: 0;
 		  bottom: 0;
 		  width: 100%;
@@ -22,9 +22,6 @@
 		}
 
 		@media (max-width: 769px) {
-			#brandText{
-				display: none;
-			}
 
 			#PersonasBox {
 			  margin-bottom: 100px;
@@ -40,35 +37,15 @@
 </head>
 <body>
 	<header>
-		<div class="collapse bg-dark" id="navbarHeader">
-			<div class="container">
-				<div class="row">
-					<div class="col-sm-8 col-md-7 py-4">
-						<h4 class="text-white">¿Qué es ConectApp?</h4>
-						<p class="text-white">ConectApp es un modo sencillo de conectar, aprender y generar ingresos extras con el potencial de los residuos y las cosas que ya no usas. Regístrate rápido y sigue los pasos para formar parte de una nueva ecónoma sostenible!</p>
-					</div>
-					<div class="col-sm-4 offset-md-1 py-4">
-						<h4 class="text-white">Contacto</h4>
-						<ul class="list-unstyled">
-							<li style="margin-bottom: 5px;"><a href="#" class="text-white"><img src="img/twitter.png" style="width: 30px;"> @ConectAppCol - Twitter</a></li>
-							<li style="margin-bottom: 5px;"><a href="#" class="text-white"><img src="img/facebook.png" style="width: 30px;"> Conectapp - Facebook</a></li>
-							<li><a href="#" class="text-white"><img src="img/instagram.png" style="width: 30px;"> conectapp.co - Instagram</a></li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</div>
-		
 		<div class="navbar shadow-sm" style="background-color: green;">
 			<div class="container d-flex justify-content-between">
 				<a href="#" class="navbar-brand d-flex align-items-center">
 					<img src="/img/icon_conectapp.jpg" style="height: 30px;border-radius: 50%;">
 					<strong id="brandText" style="margin-left: 10px;color: white;">ConectApp</strong>
 				</a>
-				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
-					<!-- <span class="navbar-toggler-icon"></span> -->
+				<!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
 					<i class="material-icons" style="color: white;">contact_support</i>
-				</button>
+				</button> -->
 			</div>
 		</div>
 	</header>
@@ -153,6 +130,25 @@
 		      </div>
 		    </div>
 		  </div>
+		</div>
+	</div>
+
+	<div class="bg-dark" id="navbarHeader">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-8 col-md-7 py-4">
+					<h4 class="text-white">¿Qué es ConectApp?</h4>
+					<p class="text-white">ConectApp es un modo sencillo de conectar, aprender y generar ingresos extras con el potencial de los residuos y las cosas que ya no usas. Regístrate rápido y sigue los pasos para formar parte de una nueva ecónoma sostenible!</p>
+				</div>
+				<div class="col-sm-4 offset-md-1 py-4">
+					<h4 class="text-white">Contacto</h4>
+					<ul class="list-unstyled">
+						<li style="margin-bottom: 5px;"><a href="https://twitter.com/ConectAppCol" target="_blank" class="text-white"><img src="img/twitter.png" style="width: 30px;"> @ConectAppCol - Twitter</a></li>
+						<li style="margin-bottom: 5px;"><a href="https://www.facebook.com/Conectapp-299738160663570/" target="_blank" class="text-white"><img src="img/facebook.png" style="width: 30px;"> Conectapp - Facebook</a></li>
+						<li><a href="https://instagram.com/conectapp.co?utm_source=ig_profile_share&igshid=1cmi0zdlfcmor" target="_blank" class="text-white"><img src="img/instagram.png" style="width: 30px;"> conectapp.co - Instagram</a></li>
+					</ul>
+				</div>
+			</div>
 		</div>
 	</div>
 

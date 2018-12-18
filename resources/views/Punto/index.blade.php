@@ -15,10 +15,6 @@
 		#SidenavPc{
 			display: none;
 		}
-
-		#brandText{
-			display: none;
-		}
 	}
 
 	@media (min-width: 770px) {
@@ -53,6 +49,8 @@
 		<div class="dropdown-divider"></div>
 		<a class="nav-link" href="#" id="AcuerdoSide">Acuerdos</a>
 		<div class="dropdown-divider"></div>
+		<a class="nav-link" href="#" id="FacturacionSide">Facturación</a>
+		<div class="dropdown-divider"></div>
 		<a class="nav-link" href="/User/SingOut">Salir</a>
 		<div class="dropdown-divider"></div>
 	</nav>
@@ -68,10 +66,12 @@
 				<div class="dropdown-divider"></div>
 				<a class="nav-link" href="#" id="AcuerdoSide_">Acuerdos</a>
 				<div class="dropdown-divider"></div>
+				<a class="nav-link" href="#" id="FacturacionSide_">Facturación</a>
+				<div class="dropdown-divider"></div>
 				<a class="nav-link" href="/User/SingOut">Salir</a>
 				<div class="dropdown-divider"></div>
 			</nav>
-	
+
 			<div class="col-12 col-md-9" id="BuscarView" style="display: none;">
 				<div class="card">
 					<h1 class="card-header">Elementos disponibles</h1>
@@ -107,6 +107,36 @@
 					<form class="container" id="ShowAcuerdos">
 
 					</form>
+				</div>
+			</div>
+
+			<div class="col-12 col-md-9" id="FacturacionView" style="display: none;">
+				<div class="card">
+					<h1 class="card-header">Facturación</h1>
+					<div class="container">
+						<div class="table-responsive table-bordered table-hover">
+							<table class="table" style="margin-top: 10px;">
+								<thead class="thead-dark">
+									<tr>
+										<th scope="col">#</th>
+										<th scope="col">Elemento</th>
+										<th scope="col">Cantidad</th>
+										<th scope="col">Precio Total</th>
+										<th scope="col">% Descontado</th>
+										<th scope="col">Total</th>
+									</tr>
+								</thead>
+								<tbody id="ShowFacturacion">
+									
+								</tbody>
+							</table>
+						</div>
+						
+						<div id="optionsPay" style="margin: 10px 0px;display: none;">
+							<a href="#"><img src="/img/efecty.png" class="img-thumbnail" style="height: 110px;"></a>
+							<a href="#"><img src="/img/paypal.png" class="img-thumbnail" style="height: 110px;width: 240px;"></a>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -327,6 +357,36 @@
 		});
 	}
 
+	function Facturado(){
+		$.ajax({
+			url:'/Facturacion',
+			type:'GET',
+			success:function(argument) {	
+				if (argument.length == 0) {
+					$('#ShowFacturacion').html('<tr><th colspan="6" style="text-align: center;">No hay facturados</th></tr>');
+				} else {
+					var html_ = "", total = 0;
+					for (var i = 0; i < argument.length; i++) {
+						html_+= '<tr>'+
+									'<th scope="row">'+(i+1)+'</th>'+
+									'<td>'+argument[i].elemento.nombre+'</td>'+
+									'<td>'+argument[i].elemento.cantidad+' Kilogramos</td>'+
+									'<td>'+argument[i].precio+'</td>'+
+									'<td>20%</td>'+
+									'<td>'+(argument[i].precio*0.2).toFixed(0)+'</td>'+
+								'</tr>';
+						total += parseInt((argument[i].precio*0.2).toFixed(0))
+					}
+
+					html_+= '<tr><th colspan="5" style="text-align: center;">Total</th><th>'+total+'</th></tr>';
+
+					$('#ShowFacturacion').html(html_);
+					$('#optionsPay').css({'display':''});
+				}
+			}
+		});
+	}
+
 	$(function() {
 		buscar_elementos_disponibles();
 
@@ -380,8 +440,20 @@
 			mostrarVista('#AcuerdoView');
 		});
 
+		$('#FacturacionSide').on('click', function() {
+			$('#collapseExample').collapse('hide');
+			Facturado();
+			mostrarVista('#FacturacionView');
+		});
+
+		$('#FacturacionSide_').on('click', function() {
+			$('#collapseExample').collapse('hide');
+			Facturado();
+			mostrarVista('#FacturacionView');
+		});
+
 		function mostrarVista(argument) {
-			var vistas = ['#BuscarView', '#DefinirView','#ContactoView','#AcuerdoView'];
+			var vistas = ['#BuscarView', '#DefinirView','#ContactoView','#AcuerdoView','#FacturacionView'];
 			for (var i = 0; i < vistas.length; i++) {
 				if (vistas[i] == argument) {
 					$(vistas[i]).css({'display':''});

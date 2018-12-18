@@ -58,4 +58,20 @@ class ElementoController extends Controller
 
         return $Final;
     }
+
+    public function SearchElementsAvaibleByPerson()
+    {
+        $Elementos = Elemento::where('persona_id', User::find(Session::get('session'))->Person()->first()['id'])
+        ->where('estado', 'Disponible')
+        ->get();
+
+        $Final = [];
+
+        foreach ($Elementos as $key => $value) {
+            $Final[] = $value;
+            $Final[$key]['cantidad_'] = $value->cant()->first();
+        }
+
+        return $Final;
+    }
 }

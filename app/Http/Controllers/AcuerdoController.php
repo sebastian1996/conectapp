@@ -111,4 +111,16 @@ class AcuerdoController extends Controller
 
     	return response()->json(['status' => true, 'msg' => 'Cerrado correctamente']);
     }
+
+    public function Facture()
+    {
+        $contactos = Acuerdo::where('punto_id', User::find(Session::get('session'))->Point()->first()['id'])
+        ->where('estadoGeneral', 'Cerrado')->get();
+        foreach ($contactos as $key => $value) {
+            $contactos[$key]['elemento'] = $value->Element()->first();
+            $contactos[$key]['persona'] = $value->Element()->first()->person()->first();
+        }
+
+        return $contactos;
+    }
 }

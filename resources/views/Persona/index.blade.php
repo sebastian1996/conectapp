@@ -16,10 +16,6 @@
 		#SidenavPc{
 			display: none;
 		}
-
-		#brandText{
-			display: none;
-		}
 	}
 
 	@media (min-width: 770px) {
@@ -50,6 +46,8 @@
 		<div class="dropdown-divider"></div>
 		<a class="nav-link" href="#" id="ContactoSide">Contactos</a>
 		<div class="dropdown-divider"></div>
+		<a class="nav-link" href="#" id="PublicadosSide">Publicados</a>
+		<div class="dropdown-divider"></div>
 		<a class="nav-link" href="/User/SingOut">Salir</a>
 		<div class="dropdown-divider"></div>
 	</nav>
@@ -63,6 +61,8 @@
 				<a class="nav-link" href="#" id="PublicarSide_">Publicar</a>
 				<div class="dropdown-divider"></div>
 				<a class="nav-link" href="#" id="ContactoSide_">Contactos</a>
+				<div class="dropdown-divider"></div>
+				<a class="nav-link" href="#" id="PublicadosSide_">Publicados</a>
 				<div class="dropdown-divider"></div>
 				<a class="nav-link" href="/User/SingOut">Salir</a>
 				<div class="dropdown-divider"></div>
@@ -139,13 +139,24 @@
 					</form>
 				</div>
 			</div>
+
+			<div class="col-12 col-md-9" id="ElementosSubidosView" style="display: none;">
+				<div class="card">
+					<h1 class="card-header">Elementos subidos</h1>
+					<div class="card-body">
+						<div class="row" id="ShowElementosSubidos">
+							
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 </body>
 
 <script type="text/javascript">
 	function mostrarVista(argument) {
-		var vistas = ['#publicarView','#ContactoView'];
+		var vistas = ['#publicarView','#ContactoView','#ElementosSubidosView'];
 		for (var i = 0; i < vistas.length; i++) {
 			if (vistas[i] == argument) {
 				$(vistas[i]).css({'display':''});
@@ -212,6 +223,37 @@
 		});
 	}
 
+	function buscar_publicados() {
+		$.ajax({
+			url:'/Elemento/SubidosPersona',
+			type:'GET',
+			success:function(argument) {
+				if (argument.length == 0) {
+					$('#ShowElementosSubidos').attr('class','row justify-content-center');
+					$('#ShowElementosSubidos').html('<p class="card-text"><i>No hay elementos disponibles</i></p>');
+				} else {
+					var html_ = "";
+					for (var i = 0; i < argument.length; i++) {
+						html_+=''+
+						'<div class="col-12 col-md-6" style="margin-bottom: 10px;">'+
+						'<div class="card" style="width: 18rem;">'+
+						'<img class="card-img-top" src="img/elementos/'+argument[i].imagen+'" alt="Card image cap">'+
+						'<div class="card-body">'+
+						'<h4 class="card-title">'+argument[i].nombre+'</h4>'+
+						'<p class="card-text"><b>Descripción:</b> '+argument[i].descripcion+'</p>'+
+						'<p class="card-text"><b>Cantidad:</b> '+argument[i].cantidad+' '+argument[i].cantidad_.nombre+'</p>'+
+						'<div class="dropdown-divider"></div>'+
+						'</div>'+
+						'</div>'+
+						'</div>';
+					}
+
+					$('#ShowElementosSubidos').html(html_);
+				}
+			}
+		});
+	}
+
 	$(function() {
 		$('#PublicarSide').on('click', function() {
 			$('#collapseExample').collapse('hide');
@@ -233,6 +275,18 @@
 			$('#collapseExample').collapse('hide');
 			buscar_acuerdos();
 			mostrarVista('#ContactoView');
+		});
+
+		$('#PublicadosSide').on('click', function() {
+			$('#collapseExample').collapse('hide');
+			buscar_publicados();
+			mostrarVista('#ElementosSubidosView');
+		});
+
+		$('#PublicadosSide_').on('click', function() {
+			$('#collapseExample').collapse('hide');
+			buscar_publicados();
+			mostrarVista('#ElementosSubidosView');
 		});
 
 		llenar_categorias();

@@ -42,6 +42,7 @@ Route::get('/Categoria/Punto', 'CategoriaController@CategoriesForPoint');
 
 Route::post('/Elemento', 'ElementoController@Save');
 Route::get('/Elemento/Disponibles', 'ElementoController@SearchElementsByCategories');
+Route::get('/Elemento/SubidosPersona', 'ElementoController@SearchElementsAvaibleByPerson');
 
 Route::post('/Punto/Categorias', 'PuntoController@SaveCategoriesPrices');
 
@@ -51,3 +52,5 @@ Route::post('/Acuerdo/PersonaCerrar', 'AcuerdoController@ClosePerson');
 Route::get('/Acuerdo/Punto', 'AcuerdoController@SearchContactPoint');
 Route::get('/Acuerdo/Punto/Realizados', 'AcuerdoController@SearchContactPointDone');
 Route::get('/Acuerdo/Persona', 'AcuerdoController@SearchContactPerson');
+
+Route::get('/Facturacion', 'AcuerdoController@Facture');
