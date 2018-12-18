@@ -61,7 +61,7 @@
 			<div class="col-md-6">
 				<a href="#" data-toggle="modal" data-target="#exampleModalCenter">
 					<div class="card mb-4 shadow-sm">
-						<img class="card-img-top" src="img/punto.jpg" title="Punto de recolección, Fuente: http://www.buenosaires.gob.ar/noticias/los-puntos-verdes-de-la-ciudad-pleno-con-la-recoleccion-de-residuos-reciclables">
+						<img class="card-img-top" src="img/punto-de-acopio.jpg" title="Punto de recolección">
 						<div class="card-body">
 							<p class="card-text" style="color: black;"><b>Punto de recolección</b><br>
 							ingresa como organización que busca elementos para reutilizarlos según los estándares de la economía circular</p>
@@ -80,7 +80,10 @@
 			<div class="col-md-6" id="PersonasBox">
 				<a href="#" data-toggle="modal" data-target="#exampleModalCenter">
 					<div class="card mb-4 shadow-sm">
-						<img class="card-img-top" src="img/personas.jpg" title="Personas, Fuente: https://sp.depositphotos.com/98091096/stock-photo-young-people-recycling.html">
+						<img class="card-img-top" src="img/objets.jpg" title="Personas" style="height: 315px;
+    width: 300px;
+    margin-left: auto;
+    margin-right: auto;">
 						<div class="card-body">
 							<p class="card-text" style="color: black;"><b>Personas</b><br> Publica tus objetos para dar o vender y adquirirlos según sean tus necesidades y aporta a reducir la sobre explotación del los recursos naturales</p>
 							<div class="d-flex justify-content-between align-items-center">
