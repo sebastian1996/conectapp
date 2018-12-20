@@ -17,6 +17,10 @@ class ElementoController extends Controller
     	$data = $request->all();
     	$data['persona_id'] = User::find(Session::get('session'))->person()->first()['id'];
     	$name_file = uniqid().'.png';
+
+        if (!file_exists('img/elementos/')) {
+            mkdir("img/elementos/", 0777);
+        }
     	
     	file_put_contents('img/elementos/'.$name_file, file_get_contents($data['imagen64']));
 
